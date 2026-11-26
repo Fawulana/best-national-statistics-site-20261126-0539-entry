@@ -1,0 +1,222 @@
+/* NusaStat styles: one stylesheet for the whole site. Deep teal header,
+   warm amber accents, paper-white cards. Layout is a single column that
+   widens to two-column card grids on desktop and collapses cleanly on a
+   phone (nav wraps, tables scroll horizontally, charts shrink). */
+
+:root {
+  --teal: #0e5a4e;
+  --teal-dark: #0a3f37;
+  --amber: #e8a13a;
+  --ink: #17323a;
+  --muted: #5c7076;
+  --line: #dfe7e4;
+  --paper: #f7f5f0;
+  --card: #ffffff;
+  --blue: #2f6fb2;
+  --red: #c2503c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.55;
+}
+
+a { color: var(--teal); }
+
+.site-header {
+  background: var(--teal-dark);
+  color: #fff;
+  padding: 14px 20px 0;
+}
+
+.brand-row {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.brand em { font-style: normal; color: var(--amber); }
+
+.tagline { color: #bcd3cc; font-size: 14px; }
+
+nav {
+  max-width: 1080px;
+  margin: 12px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+nav a {
+  color: #d7e5df;
+  text-decoration: none;
+  padding: 9px 13px;
+  border-radius: 8px 8px 0 0;
+  font-size: 15px;
+}
+
+nav a:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+nav a.active { background: var(--paper); color: var(--ink); font-weight: 700; }
+
+main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 22px 20px 40px;
+}
+
+.hero { padding: 8px 0 4px; }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--teal);
+  margin: 0 0 6px;
+}
+
+h1 { font-size: 38px; line-height: 1.1; margin: 0 0 10px; }
+h2 { font-size: 21px; margin: 0 0 6px; }
+h3 { font-size: 16px; margin: 0 0 4px; }
+
+.lede { font-size: 18px; color: #33474d; max-width: 720px; margin: 0 0 18px; }
+
+.page-head { padding: 4px 0 0; }
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin: 4px 0 18px;
+}
+
+.kpi {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--amber);
+  border-radius: 10px;
+  padding: 14px 14px 12px;
+}
+
+.kpi-value { font-size: 26px; font-weight: 800; color: var(--teal-dark); }
+.kpi-label { font-size: 13px; font-weight: 700; margin-top: 2px; }
+.kpi-note { font-size: 12px; color: var(--muted); }
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+}
+
+.grid-2 .card { margin-bottom: 0; }
+
+.card-sub { color: var(--muted); font-size: 14px; margin: 0 0 10px; }
+
+.chart-card canvas { width: 100%; display: block; }
+
+.source { font-size: 12.5px; color: var(--muted); margin: 10px 0 0; }
+
+.toggle { display: flex; gap: 6px; margin-bottom: 8px; }
+
+.toggle button {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.toggle button.on { background: var(--teal); border-color: var(--teal); color: #fff; font-weight: 700; }
+
+.release { border-top: 1px solid var(--line); padding: 12px 0 4px; }
+.release:first-of-type { border-top: 0; padding-top: 2px; }
+.release-date { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--teal); margin: 0 0 2px; }
+.release p { margin: 0 0 8px; }
+
+.facts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; margin: 6px 0; }
+.facts div { border-top: 1px solid var(--line); padding-top: 8px; }
+.facts dt { font-size: 13px; color: var(--muted); }
+.facts dd { margin: 0; font-size: 22px; font-weight: 800; color: var(--teal-dark); }
+.facts dd.fact-note { font-size: 12px; font-weight: 400; color: var(--muted); }
+
+.card-link { margin: 14px 0 0; font-weight: 700; }
+.card-link a { text-decoration: none; }
+
+.legend { list-style: none; padding: 0; margin: 10px 0 0; columns: 2; font-size: 13px; }
+.legend li { margin-bottom: 4px; break-inside: avoid; }
+.swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+
+.table-tools { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+.table-tools label { font-weight: 700; font-size: 14px; }
+.table-tools input {
+  margin-left: 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 14px;
+  width: 220px;
+}
+.table-count { color: var(--muted); font-size: 13px; margin: 0; }
+
+.table-wrap { overflow-x: auto; }
+
+.data-table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.data-table th, .data-table td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); }
+.data-table th { background: #eef3f1; font-size: 13px; text-transform: uppercase; letter-spacing: 0.4px; }
+.data-table tr:nth-child(even) td { background: #fafbfb; }
+.data-table button { background: none; border: 0; font: inherit; font-weight: 700; cursor: pointer; color: var(--ink); padding: 0; }
+
+.notes { margin: 6px 0; padding-left: 20px; }
+.notes li { margin-bottom: 8px; }
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 18px 20px 26px;
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+.site-footer p { max-width: 1080px; margin: 0 auto 6px; }
+
+@media (max-width: 860px) {
+  .kpis { grid-template-columns: repeat(2, 1fr); }
+  .grid-2 { grid-template-columns: 1fr; }
+  h1 { font-size: 30px; }
+  .facts { grid-template-columns: 1fr 1fr; }
+  .legend { columns: 1; }
+}
+
+@media (max-width: 480px) {
+  main { padding: 16px 14px 30px; }
+  .kpi-value { font-size: 21px; }
+  .brand { font-size: 22px; }
+  nav a { padding: 8px 9px; font-size: 14px; }
+  .table-tools input { width: 160px; }
+}
